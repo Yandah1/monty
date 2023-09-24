@@ -8,17 +8,30 @@ void fetch_instruction(void)
 {
 	int i = 0;
 	instruction_t instructions[] = {
-		{"push", &push}, {"pop", &pop},
-		{"pint", &pint}, {"swap", &swap},
-		{"pall", &pall}, {"add", &add},
-		{"_nop", &_nop}, {"mul", &mul},
-		{"sub", &sub}, {"_div", &_div},
+		{"push", &push}, 
+		{"pop", &pop},
+		{"pint", &pint}, 
+		{"swap", &swap},
+		{"pall", &pall}, 
+		{"add", &add},
+		{"nop", _nop},
+		{"mul", &mul},
+		{"sub", &sub},
+		{"div", _div},
+		{"stack", _stack},
+		{"queue", _queue},
 		{NULL, NULL},
 	};
 
-
 	if (globals->num_tokens == 0)
 		return;
+
+	if (globals->tokens[0][0] == '#')
+	{
+		globals->instruction->opcode = "nop";
+		globals->instruction->f = _nop;
+		return;
+	}
 	for (; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, globals->tokens[0]) == 0)

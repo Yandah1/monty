@@ -44,6 +44,12 @@ typedef struct instruction_s
  * struct fd - Hold files variables
  * @stream: Pointer to the file stream
  * @line: Pointer to the line data
+ * @**tokens
+ * @num_tokens
+ * @lifo: is stack or queue
+ * @i
+ * @line_number
+ *
  */
 typedef struct global_s
 {
@@ -51,6 +57,7 @@ typedef struct global_s
 	char *line;
 	char **tokens;
 	int num_tokens;
+	int lifo;
 	unsigned int i;
 	unsigned int line_number;
 	instruction_t *instruction;
@@ -92,9 +99,11 @@ void _nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void _div(stack_t  **stack, unsigned int line_number);
+void _stack(stack_t  **stack, unsigned int line_number);
+void _queue(stack_t  **stack, unsigned int line_number);
 
 
- /* called functions */
+/* called functions */
 int dprintf(int fd, const char *format, ...);
 ssize_t getline(char **lineptr, size_t  *, FILE *stream);
 FILE *fdopen(int fd, const char *mode);
