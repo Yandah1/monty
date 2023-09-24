@@ -11,8 +11,8 @@ void fetch_instruction(void)
 		{"push", &push}, {"pop", &pop},
 		{"pint", &pint}, {"swap", &swap},
 		{"pall", &pall}, {"add", &add},
-		{"nop", &nop}, {"mul", &mul},
-		{"sub", &sub},
+		{"_nop", &_nop}, {"mul", &mul},
+		{"sub", &sub}, {"_div", &_div},
 		{NULL, NULL},
 	};
 

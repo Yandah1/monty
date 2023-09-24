@@ -6,7 +6,7 @@
  * @line_number: line number where nope is encounted
  */
 
-void nop(stack_t **stack, unsigned int line_number)
+void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void) stack;
 	(void) line_number;
