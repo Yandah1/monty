@@ -3,7 +3,7 @@
 /**
  * pall - Prints all elements in the stack.
  * @stack: pointer
- * @lineNum: line number where the function is called
+ * @line_number: line number where the function is called
  *
  */
 void pall(stack_t **stack, unsigned int line_number)

@@ -3,7 +3,7 @@
 /**
  * push - push interger on the stack
  * @stack: pointer
- * @lineNum: line num where push is called
+ * @line_number: line num where push is called
  *
  */
 void push(stack_t **stack, unsigned int line_number)
